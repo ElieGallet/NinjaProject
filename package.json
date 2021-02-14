@@ -1,0 +1,23 @@
+{
+  "name": "ninjaproject",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "ts-node main.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ElieGallet/NinjaProject.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ElieGallet/NinjaProject/issues"
+  },
+  "homepage": "https://github.com/ElieGallet/NinjaProject#readme",
+  "devDependencies": {
+    "ts-node": "^9.1.1"
+  }
+}
