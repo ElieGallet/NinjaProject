@@ -1,4 +1,4 @@
-import { Action } from "./Action";
+import { Action, Direction, LaserAction, MoveAction, SlapAction } from "./Action";
 
 
 const prompts = require('prompts');
@@ -7,8 +7,8 @@ type Color = 'BLUE' | 'RED' | 'YELLOW' | 'GREEN';
 
 abstract class Character {
   protected readonly color: Color;
-  private coordX: number;
-  private coordY: number;
+  public coordX: number;
+  public coordY: number;
   protected currentTick: number;
   public abstract getCurrentAction(): Promise<Action>;
 }
@@ -60,12 +60,14 @@ class PlayerCharacter extends Character {
         action = new MoveAction(Direction.RIGHT);
         break;
       case 5:
-        action = new SlapAction(Direction.RIGHT);
+        action = new SlapAction();
         break;
       case 6:
-        action = new LaserAction(Direction.RIGHT);
+        action = new LaserAction();
         break;
-      }
     }
+    return action;
   }
 }
+
+export { Character, NonPlayerCharacter, PlayerCharacter };

@@ -1,6 +1,3 @@
-
-
-
 enum Direction {
   'UP',
   'DOWN',
@@ -10,4 +7,16 @@ enum Direction {
 
 abstract class Action {}
 
-export { Action, Direction };
+class MoveAction extends Action {
+  private readonly direction;
+  public constructor(direction: Direction){
+    super();
+    this.direction = direction;
+  }
+}
+
+class SlapAction extends Action {}
+
+class LaserAction extends Action {}
+
+export { Action, MoveAction, SlapAction, LaserAction, Direction };
