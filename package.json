@@ -19,6 +19,10 @@
   "homepage": "https://github.com/ElieGallet/NinjaProject#readme",
   "devDependencies": {
     "ts-node": "^9.1.1",
-    "typescript": "^4.1.5"
+    "typescript": "^4.1.5",
+    "@types/node": "^14.14.5"
+  },
+  "dependencies": {
+    "prompts": "^2.4.0"
   }
 }
