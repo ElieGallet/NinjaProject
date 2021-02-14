@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/ElieGallet/NinjaProject#readme",
   "devDependencies": {
-    "ts-node": "^9.1.1"
+    "ts-node": "^9.1.1",
+    "typescript": "^4.1.5"
   }
 }
