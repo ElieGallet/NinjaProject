@@ -1,8 +1,16 @@
-import displayBoard from "./app/displayBoard";
 import {Character,NonPlayerCharacter,PlayerCharacter} from "./app/Character";
+import { Game } from "./app/Game";
 
 const main = () =>{
-	let charBlue = new NonPlayerCharacter([]);
+  const pillars = {
+    
+  }
+  const boardConfiguration = {
+    lengthY: 10,
+    lengthX: 10,
+    pillars: pillars
+  }
+	let charBlue = new NonPlayerCharacter(Color.[]);
 	charBlue.coordX = 0;
 	charBlue.coordY = 0;
 
@@ -25,7 +33,7 @@ const main = () =>{
 	charList.push(charYellow);
 	charList.push(charRed);
 
-  displayBoard(charList);
+  new Game(charList).displayBoard();
 }
 
 main();

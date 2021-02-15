@@ -1,23 +1,44 @@
 import { Action, Direction, LaserAction, MoveAction, SlapAction } from "./Action";
+import { BoardConfiguration } from "./Game";
 
 
 const prompts = require('prompts');
 
-type Color = 'BLUE' | 'RED' | 'YELLOW' | 'GREEN';
+enum Color {
+  'BLUE',
+  'RED',
+  'YELLOW',
+  'GREEN'
+}
+
+class CharacterPawn
+
 
 abstract class Character {
+  protected constructor(color: Color){
+    this.color = color;
+  }
+  protected boardConfiguration: BoardConfiguration;
   protected readonly color: Color;
+  protected colorAchievement: Record<Color, boolean>;
   public coordX: number;
   public coordY: number;
   protected currentTick: number;
   public abstract getCurrentAction(): Promise<Action>;
+  public nextTick(){
+    this.currentTick++;
+  }
+  public setup(boardConfiguration: BoardConfiguration): CharacterPawn{
+    this.boardConfiguration = boardConfiguration;
+    const boardConfiguration.pillars.filter((pillar: Pillar) => pillar.color === this.color)
+  }
 }
 
 class NonPlayerCharacter extends Character {
   private readonly plannedActions: Array<Action>;
 
-  public constructor(plannedActions: Array<Action>){
-    super();
+  public constructor(color: Color, boardConfiguration: BoardConfiguration, plannedActions: Array<Action>){
+    super(color, boardConfiguration);
     this.plannedActions = plannedActions;
     this.currentTick = 0;
   }
@@ -43,7 +64,7 @@ class PlayerCharacter extends Character {
       type: 'number',
       name: 'value',
       message: 'Type an action number',
-      validate: (value: number) => 0 > value || value > 7 ? `unknown action` : true
+      validate: (value: number) => 1 > value || value > 6 ? `unknown action` : true
     });
     let action: Action;
     switch (actionNumber.value) {
@@ -70,4 +91,4 @@ class PlayerCharacter extends Character {
   }
 }
 
-export { Character, NonPlayerCharacter, PlayerCharacter };
+export { Character, Color, NonPlayerCharacter, PlayerCharacter };
